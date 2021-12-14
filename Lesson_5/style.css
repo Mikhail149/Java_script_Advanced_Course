@@ -1,0 +1,74 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+}
+
+.head {
+    background-color: lightgray;
+    border: solid 1px black;
+}
+
+.headContent {
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+}
+
+.searhInput {
+    height: 30px;
+    border-radius: 15px;
+    border: solid 1px darkgray;
+    padding: 0 10px;
+}
+
+.button {
+    height: 30px;
+    padding: 0 10px;
+    background-color: white;
+    border: solid 1px darkgray;
+    border-radius: 15px;
+}
+
+.button:hover {
+    background-color: black;
+    color: white;
+    border-color: white;
+}
+
+.goodsList {
+    display: flex;
+
+}
+
+.GLItem {
+    width: 200px;
+    padding: 10px;
+    border: solid 1px darkgray;
+    margin: 10px;
+}
+
+.GLItemImg {
+    width: 100%;
+}
+
+.cart {
+    position: absolute;
+    top: 60px;
+    right: 10%;
+    border: solid 1px black;
+    background-color: white;
+}
+
+td {
+    align-items: center;
+    width: 50px;
+    border-top: solid 1px black;
+}
