@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <title>eShop</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+  <header class="header">
+    <div class="findFrame">
+      <form action="#" onsubmit="return false;">
+        <label for="find">Поиск </label>
+        <input type="text" name="find" id="find">
+        <button class="button" id="butFind">Искать</button>
+      </form>
+    </div>
+    <button class="cart-button button cart-button-inactive" type="button">Корзина</button>
+  </header>
+  <main class="container">
+    <div class="goods-list"></div>
+
+    <div class="windiwCart">
+      <div class="cart"></div>
+      <div class="costCart">
+        <p class="costCartSum">
+          Пока в корзине нет товаров
+        </p>
+      </div>
+    </div>
+
+  </main>
+
+
+  <script src="script.js"></script>
+</body>
+
+</html>

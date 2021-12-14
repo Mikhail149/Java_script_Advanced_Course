@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RegExp</title>
+    <style>
+        .warning {
+            border-color: red;
+        }
+
+        .imp {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <hr>
+    <div class="task1">
+        <p>Была вот такая фраза</p>
+        <p class="task1_que"></p>
+        <p>Стала вот такая фраза</p>
+        <p class="task1_ans"></p>
+    </div>
+    <hr>
+    <form action="#" onsubmit="return false;">
+        <fieldset>
+            <legend>Контактная информация</legend>
+            <label for="name">Введите имя: <span class="imp">*</span> </label>
+            <input type="text" name="name" id="name"><br>
+            <label for="tel">Введите номер телефона: <span class="imp">*</span> </label>
+            <input type="text" name="tel" id="tel"><br>
+            <label for="email">Введите e-mail адрес: <span class="imp">*</span> </label>
+            <input type="text" name="email" id="email"><br>
+        </fieldset>
+        <button id="sub">Отправить</button>
+    </form>
+</body>
+<script>
+
+    const strQue = `We exclaimed, 'It's so easy!' She answered, 'No, I can't.'`;
+    let str = strQue;
+    //описываем открывающую кавычку (не граница слова, кавычка, не пробел)
+    const regexp = /(\B)'(\S)/gi;
+    //описываем закрывающую кавычку (не пробел, кавычка, не граница слова)
+    const regexp2 = /(\S)'(\B)/gi;
+    //Заменяем все открывающие кавычки
+    str = str.replace(regexp, `$1"$2`);
+    //Заменяем все закрывающие кавычки
+    str = str.replace(regexp2, `$1"$2`);
+    console.log(str);
+    document.querySelector(`.task1_que`).innerHTML = strQue;
+    document.querySelector(`.task1_ans`).innerHTML = str;
+
+    //Задние со звездочкой
+
+    function verification() {
+        const name = document.querySelector(`#name`);
+        const tel = document.querySelector(`#tel`);
+        const email = document.querySelector(`#email`);
+        let mis = 0;
+
+        const regexpName = /[а-я+a-z+]/gi;
+        const regexpTel = /\+7\(\d{3}\)\d{3}-\d{4}/g;
+        const regexpEmail = /([a-z0-9_\.-]+)@([a-z0-9_\.-]+)\.([a-z\.]{2,6})$/;
+
+        if (!regexpName.test(name.value) || name.value == '') {
+            name.classList = "warning";
+            mis++;
+        } else {
+            name.classList.remove('warning');
+        }
+
+        if (!regexpTel.test(tel.value)) {
+            tel.classList = "warning";
+            mis++;
+        } else {
+            tel.classList.remove('warning');
+        }
+
+        if (!regexpEmail.test(email.value)) {
+            email.classList = "warning";
+            mis++;
+        } else {
+            email.classList.remove('warning');
+        }
+
+        if (mis != 0) {
+            alert(`Введены не корректные данные!`);
+        }
+
+
+    }
+
+    document.querySelector(`#sub`).addEventListener('click', verification);
+
+
+</script>
+
+</html>
